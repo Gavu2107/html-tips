@@ -1,23 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hero Section Challenge</title>
-  <link rel="stylesheet" href="style.css">
+  <title>HTML Mentor Letter</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      /* Horizontal center */
+      align-items: center;
+      /* Vertical center */
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .container {
+      background: white;
+      padding: 40px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+
+    :root {
+      --bg: #f9f9f9;
+      --text: #222;
+      --card-bg: #fff;
+      --btn-bg: #222;
+      --btn-text: #fff;
+    }
+
+    [data-theme="dark"] {
+      --bg: #1a1a1a;
+      --text: #f5f5f5;
+      --card-bg: #2a2a2a;
+      --btn-bg: #f5f5f5;
+      --btn-text: #1a1a1a;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .tips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .tip-section {
+      flex: 1 1 calc(50% - 20px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .tip {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .buttons {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    button {
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    @media print {
+      .buttons {
+        display: none;
+      }
+
+      body {
+        background: white !important;
+        color: black !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="container">
+    <h1>10 Lessons from Your HTML Mentor</h1>
+    <div class="tips">
+      <div class="tip-section">
+        <div class="tip">
+          <strong>1. Understand, Don’t Just Copy:</strong>
+          Before using a tag or property, learn *why* it exists. Don’t just paste code from the internet — experiment
+          with it to understand how it works.
+        </div>
 
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Welcome to FutureWeb</h1>
-      <p>Building a modern web experience with clean and responsive design.</p>
-      <a href="#" class="btn-primary">Get Started</a>
-    </div>
-    <div class="hero-image">
-      <img src="https://via.placeholder.com/400x300" alt="Web design illustration">
-    </div>
-  </header>
+        <div class="tip">
+          <strong>2. Write Semantic HTML:</strong>
+          Use meaningful tags like &lt;header&gt;, &lt;main&gt;, &lt;section&gt;, and &lt;footer&gt;.
+          This helps search engines and screen readers understand your page better.
+        </div>
 
+        <div class="tip">
+          <strong>3. Build for Everyone:</strong>
+          Add <code>alt</code> text for images, label your forms, and make sure your colors have good contrast.
+          Accessibility ensures your website can be used by *everyone*.
+        </div>
+
+        <div class="tip">
+          <strong>4. Keep It Clean:</strong>
+          Use proper indentation and spacing. Clean code isn’t just pretty — it’s easier to debug, maintain, and share
+          with others.
+        </div>
+
+        <div class="tip">
+          <strong>5. Validate and Learn:</strong>
+          Use the <a href="https://validator.w3.org/" target="_blank">W3C HTML Validator</a> to check your work.
+          It helps you catch small errors and understand the correct HTML structure.
+        </div>
+      </div>
+
+      <div class="tip-section">
+        <div class="tip">
+          <strong>6. Inspect and Explore:</strong>
+          Right-click any webpage and choose “Inspect.” You’ll see how professionals build layouts — a great way to
+          learn modern techniques.
+        </div>
+
+        <div class="tip">
+          <strong>7. Think Responsively:</strong>
+          Add the viewport meta tag and use relative units (like %, em, rem). Test your design on mobile and tablet
+          screens to ensure it looks great everywhere.
+        </div>
+
+        <div class="tip">
+          <strong>8. Build, Break, Repeat:</strong>
+          Don’t fear mistakes! The best way to learn HTML is by experimenting — build small projects, break them, then
+          fix them again.
+        </div>
+
+        <div class="tip">
+          <strong>9. Comment with Care:</strong>
+          Use comments (<code>&lt;!-- like this --&gt;</code>) to describe your sections or tricky code. It helps you
+          and others understand your project later.
+        </div>
+
+        <div class="tip">
+          <strong>10. Never Stop Being Curious:</strong>
+          HTML is the foundation of the web. Explore new tags, follow tutorials, and try building real projects — every
+          experiment makes you better.
+        </div>
+      </div>
+    </div>
+
+
+    <div class="buttons">
+      <button id="toggleTheme">Toggle Theme</button>
+      <button id="toggleFullscreen">Toggle Fullscreen</button>
+      <button id="downloadPDF">Download as PDF</button>
+    </div>
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('toggleTheme');
+    const fullBtn = document.getElementById('toggleFullscreen');
+    const pdfBtn = document.getElementById('downloadPDF');
+
+    // Theme toggle
+    themeBtn.addEventListener('click', () => {
+      const currentTheme = root.getAttribute('data-theme');
+      root.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+    });
+
+    // Fullscreen toggle
+    fullBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    });
+
+    // Download as PDF (opens print dialog)
+    pdfBtn.addEventListener('click', () => {
+      window.print();
+    });
+  </script>
 </body>
+
 </html>
